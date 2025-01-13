@@ -1,0 +1,172 @@
+warning: in the working copy of 'index.html', LF will be replaced by CRLF the next time Git touches it
+[1mdiff --git a/home.html b/home.html[m
+[1mdeleted file mode 100644[m
+[1mindex 49801ad..0000000[m
+[1m--- a/home.html[m
+[1m+++ /dev/null[m
+[36m@@ -1,20 +0,0 @@[m
+[31m-<!DOCTYPE html>[m
+[31m-<html lang="en">[m
+[31m-  <head>[m
+[31m-    <meta charset="UTF-8" />[m
+[31m-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />[m
+[31m-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />[m
+[31m-    <title>Vite + React + TS</title>[m
+[31m-    <link rel="preconnect" href="https://fonts.googleapis.com" />[m
+[31m-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />[m
+[31m-    <link[m
+[31m-      href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap"[m
+[31m-      rel="stylesheet"[m
+[31m-    />[m
+[31m-    <link rel="stylesheet" href="./src/index.css" />[m
+[31m-  </head>[m
+[31m-  <body>[m
+[31m-    <div id="root" class="bg h-screen px-60 py-12"></div>[m
+[31m-    <script type="module" src="/src/home.tsx"></script>[m
+[31m-  </body>[m
+[31m-</html>[m
+\ No newline at end of file[m
+[1mdiff --git a/index.html b/index.html[m
+[1mindex 458d953..55d6d2f 100644[m
+[1m--- a/index.html[m
+[1m+++ b/index.html[m
+[36m@@ -15,6 +15,6 @@[m
+   </head>[m
+   <body>[m
+     <div id="root" class="bg h-screen px-60 py-12"></div>[m
+[31m-    <script type="module" src="/src/main.tsx"></script>[m
+[32m+[m[32m    <script type="module" src="/src/start.tsx"></script>[m
+   </body>[m
+ </html>[m
+[1mdiff --git a/src/components/app.tsx b/src/components/app.tsx[m
+[1mdeleted file mode 100644[m
+[1mindex 0f76dde..0000000[m
+[1m--- a/src/components/app.tsx[m
+[1m+++ /dev/null[m
+[36m@@ -1,46 +0,0 @@[m
+[31m-import Button from "./startButton";[m
+[31m-import Options from "./options";[m
+[31m-import { IoMdCode } from "react-icons/io";[m
+[31m-import { useState } from "react";[m
+[31m-[m
+[31m-function App(){[m
+[31m-    const [showOp,setShowOp] = useState(false);[m
+[31m-[m
+[31m-    const toggleOptions = ()=> {[m
+[31m-      if(showOp){[m
+[31m-        setTimeout(()=>{document.getElementById("buttons")?.classList.toggle("hidden");},300)[m
+[31m-      }else{[m
+[31m-        document.getElementById("buttons")?.classList.toggle("hidden");[m
+[31m-      }[m
+[31m-      setShowOp(!showOp);[m
+[31m-    }[m
+[31m-[m
+[31m-    return([m
+[31m-      <div className="grid w-full h-full pt-24 pb-14 justify-center lines">[m
+[31m-        <div className="h-fit">[m
+[31m-          <div className="flex items-baseline">[m
+[31m-            <IoMdCode className="fill-red-700 w-8" />[m
+[31m-            <h1 className="text-7xl text-neutral-200 display-font">[m
+[31m-              Samuel Bitdinger[m
+[31m-            </h1>[m
+[31m-          </div>[m
+[31m-          <div className="flex w-fit mx-auto mt-2">[m
+[31m-            <h2 className="text-neutral-200 text-5xl display-font">[m
+[31m-              portifólio[m
+[31m-            </h2>[m
+[31m-            <span className="text-red-700 justify-self-center text-7xl lh">[m
+[31m-              .[m
+[31m-            </span>[m
+[31m-          </div>[m
+[31m-        </div>[m
+[31m-        <div className="grid max-w-xs w-full justify-self-center gap-6 items-end" id="buttons">[m
+[31m-          <Button texto="Iniciar." onClick={()=>{window.location.href = "../home.html"}}></Button>[m
+[31m-          <Button texto="Opções." onClick={toggleOptions}></Button>[m
+[31m-          <Button texto="Sair." onClick={()=>{}}></Button>[m
+[31m-        </div>[m
+[31m-        <Options isVisible={showOp} toggleVisibility={toggleOptions}></Options>[m
+[31m-      </div>[m
+[31m-    )[m
+[31m-}[m
+[31m-[m
+[31m-export default App;[m
+[1mdiff --git a/src/components/background.tsx b/src/components/background.tsx[m
+[1mindex da5e2cc..a1ddba0 100644[m
+[1m--- a/src/components/background.tsx[m
+[1m+++ b/src/components/background.tsx[m
+[36m@@ -1,6 +1,6 @@[m
+ function bg({ children }: { children: React.ReactElement }) {[m
+   return ([m
+[31m-    <article className="bg-neutral-900 w-full h-full block rounded-3xl display-font text-3xl">[m
+[32m+[m[32m    <article className="bg-neutral-900 w-full h-full block rounded-3xl display-font text-3xl pt-24 pb-14 ">[m
+       {children}[m
+     </article>[m
+   );[m
+[1mdiff --git a/src/components/options.tsx b/src/components/options.tsx[m
+[1mdeleted file mode 100644[m
+[1mindex dac9000..0000000[m
+[1m--- a/src/components/options.tsx[m
+[1m+++ /dev/null[m
+[36m@@ -1,81 +0,0 @@[m
+[31m-import { MdDarkMode } from "react-icons/md";[m
+[31m-import { MdLightMode } from "react-icons/md";[m
+[31m-import { IoClose } from "react-icons/io5";[m
+[31m-import { IoMdCode } from "react-icons/io";[m
+[31m-import { useState } from "react";[m
+[31m-import { motion} from "framer-motion";[m
+[31m-[m
+[31m-function Options({isVisible,toggleVisibility}:{isVisible : boolean, toggleVisibility : ()=> void}) {[m
+[31m-  const [eng, setEng] = useState(false);[m
+[31m-  const [light, setLight] = useState(false);[m
+[31m-[m
+[31m-  const [isClosing,setIsClosing] = useState(false);[m
+[31m-  const [isLight,setIsLight] = useState(false);[m
+[31m-  const [isDark,setIsDark] = useState(false)[m
+[31m-[m
+[31m-  return ( [m
+[31m-    <motion.section className="w-72 h-full border-2 border-solid border-neutral-200 rounded-3xl grid justify-self-center relative" id="options"[m
+[31m-    initial={{x:"-50%", display: "none",opacity: 0}}[m
+[31m-    animate={{x: isVisible ? 0 : "-50%", display: isVisible ? "grid" : "none", opacity: isVisible ? 1 : 0}}[m
+[31m-    transition={{type: "tween", duration: .3}}[m
+[31m-    >[m
+[31m-      <motion.div className="absolute top-2 right-2"[m
+[31m-      initial={{transform:"rotate(0)"}}[m
+[31m-      animate={{transform: isClosing ? "rotate(180deg)" : "rotate(0)"}}[m
+[31m-      transition={{type: "tween", duration: .3}}[m
+[31m-      onMouseEnter={()=>{setIsClosing(true)}}[m
+[31m-      onMouseLeave={()=>{setIsClosing(false)}}[m
+[31m-      >[m
+[31m-        <IoClose className="fill-neutral-200 cursor-pointer" onClick={toggleVisibility}/>[m
+[31m-      </motion.div>[m
+[31m-      <div className="self-center grid gap-4">[m
+[31m-        <div className="grid justify-center justify-items-center text-neutral-200">[m
+[31m-          <h2 className="font-bold mb-1">Idioma</h2>[m
+[31m-          <div className="flex mr-3">[m
+[31m-            <IoMdCode className="fill-red-700 w-5 " style={{ opacity: eng ? 0 : 1 }}/>[m
+[31m-            <span className="text-2xl font-normal cursor-pointer" onClick={() => {setEng(false);}}>[m
+[31m-              Português[m
+[31m-            </span>[m
+[31m-          </div>[m
+[31m-          <div className="flex mr-3">[m
+[31m-            <IoMdCode className="fill-red-700 w-5" style={{ opacity: eng ? 1 : 0 }}/>[m
+[31m-            <span className="text-2xl font-normal cursor-pointer" onClick={() => {setEng(true);}}>[m
+[31m-              Inglês[m
+[31m-            </span>[m
+[31m-          </div>[m
+[31m-        </div>[m
+[31m-        <div className="grid justify-center justify-items-center text-neutral-200">[m
+[31m-          <h2 className="font-bold mb-1">Tema</h2>[m
+[31m-          <div className="flex gap-8">[m
+[31m-            <div className="flex">[m
+[31m-              <IoMdCode className="fill-red-700 w-5" style={{ opacity: light ? 0 : 1 }}/>[m
+[31m-              <motion.div[m
+[31m-                initial={{transform:"rotate(0)"}}[m
+[31m-                animate={{transform: isDark ? "rotate(360deg)" : "rotate(0)"}}[m
+[31m-                transition={{type: "tween", duration: .3}}[m
+[31m-                onMouseEnter={()=>{setIsDark(true)}}[m
+[31m-                onMouseLeave={()=>{setIsDark(false)}}             [m
+[31m-              >[m
+[31m-                <MdDarkMode className="cursor-pointer" onClick={()=>{setLight(false)}} />[m
+[31m-              </motion.div>[m
+[31m-            </div>[m
+[31m-            <div className="flex m

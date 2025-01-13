@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.smooth{
+  scroll-behavior: smooth !important;
+} 
+
+.bg {
+  background-color: #323232;
+  overflow: hidden;
+}
+
+.display-font {
+  font-family: "Pixelify Sans", sans-serif;
+}
+
+.text-font{
+  font-family: "Lato", sans-serif;
+}
+
+.lh {
+  line-height: 2.125rem;
+}
+
+.menu-rows{
+  grid-template-rows: 1fr auto;
+}
+
+.icon-transition {
+  transition: 0.15s;
+}
+
+.about-columns {
+  grid-template-columns: 1fr auto;
+}
+
+.studies-columns {
+  grid-template-columns: auto 1fr;
+}
+
+.menu-columns{
+  grid-template-columns: auto 1fr auto;
+}
+
+.contact-columns{
+  grid-template-columns: auto 1fr auto auto auto;
+}
+
+#course-container::-webkit-scrollbar {
+  height: 6px;
+  background-color: #171717;
+  margin-top: 10px !important;
+}
+
+#course-container::-webkit-scrollbar-thumb {
+  background-color: #323232;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#course::-webkit-scrollbar{
+  width: 6px;
+  background-color: #171717;
+  border-radius: 5px;
+}
+
+#course::-webkit-scrollbar-thumb{
+  cursor: pointer;
+  width: 6px;
+  background-color: #323232;
+  border-radius: 5px;
+}
+
+.separator{
+  height: 2px;
+}
+
+.input-width{
+  min-width: 450px;
+}
+
+li::after {
+  content: '';
+  width: var(--after-width);
+  transition: width 0.3s ease;
+}
+
+.col-1 {
+  grid-column: 1; /* Places the element in the first column */
+}
+
+.col-2 {
+  grid-column: 2; /* Places the element in the second column */
+}
